@@ -1,0 +1,25 @@
+﻿@model CsvDataManager.Models.ImportModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Import CSV";
+}
+
+<div class="container">
+    <h2 class="mt-4">@ViewData["Title"]</h2>
+    <form asp-action="Import" method="post" enctype="multipart/form-data" class="mt-4">
+        <div class="form-group">
+            <label for="file">Upload CSV File</label>
+           @* <input type="file" name="file" class="form-control"/>*@
+            @Html.TextBoxFor(m=> m.File, "", new { @type= "file" , @class="form-control"}) <br />
+            @Html.ValidationMessageFor(m=>m.File,"", new{@class="text-danger"})
+            @*<span asp-validation-for="file" class="text-danger"></span>*@
+        </div>
+        <button type="submit" class="btn btn-primary">Import</button>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,15 @@
+﻿@model CsvDataManager.Models.ErrorViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Error";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center text-danger">An error occurred</h2>
+    <div class="alert alert-danger">
+        <p>An unexpected error has occurred. Please try again later.</p>
+        <p>
+            <strong>Request ID:</strong> <code>@Model.RequestId</code>
+        </p>
+    </div>
+</div>
